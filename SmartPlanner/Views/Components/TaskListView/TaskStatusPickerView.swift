@@ -7,22 +7,24 @@
 
 import SwiftUI
 
-struct TaskStatusPicker: View {
+struct TaskStatusPickerView: View {
 
+    // @Binding : modifie une donnée du parent
     @Binding var selectedValue: TaskStatus
 
     var body: some View {
 
-        // Picker
         Picker("", selection: $selectedValue) {
             Text("En cours").tag(TaskStatus.todo)
             Text("Terminé").tag(TaskStatus.done)
         }.pickerStyle(.segmented)
+        
 
     }
 }
 
-// .constant(.) : crée un Binding dont la valeur est fixe et ne peut pas être modifiée.
+
 #Preview {
-    TaskStatusPicker(selectedValue: .constant(.todo))
+    TaskStatusPickerView(selectedValue: .constant(.todo))
 }
+

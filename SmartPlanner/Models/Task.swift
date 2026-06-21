@@ -13,7 +13,9 @@ struct Task : Identifiable {
     
     var title : String
     var titleUppercase : String
-    var description : String?
+    var details : String?
+    var adresse : String?
+    var city : String?
     
     // Date de création
     var createdAt : Date

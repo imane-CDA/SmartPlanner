@@ -15,49 +15,21 @@ struct TaskRowView: View {
 
         VStack(alignment: .leading, spacing: 16) {
 
-            TaskRowHeader(task: task)
+            TaskRowHeaderView(task: task)
 
-            TaskDescription(task: task)
+            TaskRowDescriptionView(task: task)
 
-            TaskDate(task: task)
+            TaskRowDateView(task: task)
             
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(.white))
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .black.opacity(0.05), radius: 6, y: 2)
+        .padding(20)
+        .frame(maxWidth: .infinity)
+        .background(.white.opacity(0.95))
+        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .shadow(color: .black.opacity(0.08), radius: 10)
     }
 }
 
 #Preview {
-    TaskRowView(
-        task:
-            Task(
-                title: "Faire les ",
-                titleUppercase: "courses",
-                description:
-                    "Pathé, litiaire, lait, huile, tranche de dinde, cornichon, yaourt, fromage, créme fraîche, glace, salade, semoule, beurre, menthe.",
-                createdAt: Date(),
-                dueDate: Date(),
-                status: .todo,
-                priority: .big
-            )
-    )
-}
-
-#Preview {
-    TaskRowView(
-        task:
-            Task(
-                title: "Travailler sur ",
-                titleUppercase: "SmartPlanner",
-                description:
-                    "Tâche à réaliser dans le cadre de mon organisation quotidienne.",
-                createdAt: Date(),
-                dueDate: nil,
-                status: .todo,
-                priority: .medium,
-            )
-    )
+    TaskRowView(task: Task.mocks[0])
 }

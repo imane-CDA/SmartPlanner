@@ -10,12 +10,20 @@ import SwiftUI
 // @main : point d'entrée de l'application
 @main
 struct SmartPlannerApp: App {
-        
+    
     var body: some Scene {
-        // WindowGroup : crée la fenêtre principale
         WindowGroup {
-            // première vue affichée
-            ListTasksView(tasks: tasks)
+            
+            ZStack {
+                Image("backgroundApp")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                
+                TasksListView()
+                
+            }
         }
     }
 }
